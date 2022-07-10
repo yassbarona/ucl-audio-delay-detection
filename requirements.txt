@@ -1,4 +1,7 @@
-librosa
-numpy
-streamlit
 pyt
+numpy
+pandas==1.2.4
+requests==2.25.1
+librosa==0.8.0
+streamlit==0.81.1
+
