@@ -64,7 +64,7 @@ def df_columns():
     return(col_name)
 
 def metronome_dict(filename, metronome_freq, metronome_onsets):
-    metronome_dict = {'file':f'metronome:{filename}','frequency' : metronome_freq}
+    metronome_dict = {'file':f'metronome:{filename}','frequency_Hz' : metronome_freq}
     m_o_list = list(metronome_onsets)
     for o in m_o_list:
         k = 'onset_' + str(m_o_list.index(o) + 1)
@@ -74,7 +74,7 @@ def metronome_dict(filename, metronome_freq, metronome_onsets):
     return(metronome_dict)
 
 def audio_dict(filename, in_freq, in_onsets,len_onsets, rmse_all_input,len_metronome_onsets,rmse_w_metronome,len__wo_metronome_onsets ,rmse_wo_metronome):
-    audio_dict = {'file':f'audio:{filename}', 'frequency' : in_freq}
+    audio_dict = {'file':f'audio:{filename}', 'frequency_Hz' : in_freq}
     a_o_list = list(in_onsets)
     for o in a_o_list:
         k = 'onset_' + str(a_o_list.index(o) + 1)
