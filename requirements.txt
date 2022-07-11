@@ -1,5 +1,5 @@
 cffi
-soundfile=0.10.3.post1
+soundfile==0.10.3.post1
 pytz
 numpy
 pandas
