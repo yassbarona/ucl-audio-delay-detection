@@ -79,7 +79,7 @@ def audio_dict(filename, in_freq, in_onsets,len_onsets, rmse_all_input,len_metro
     for o in a_o_list:
         k = 'onset_' + str(a_o_list.index(o) + 1)
         audio_dict.update({k : o})
-    audio_dict.update({'len_onsets':len_onsets , 'rmse_all_input':rmse_all_input, 'len_metronome_onsets':len_metronome_onsets, 'rmse_w_metronome':rmse_w_metronome, 'len__wo_metronome_onsets':len__wo_metronome_onsets, 'rmse_wo_metronome':rmse_wo_metronome})
+    audio_dict.update({'len_onsets':len_onsets , 'rmse_all_input_s':rmse_all_input, 'len_metronome_onsets':len_metronome_onsets, 'rmse_w_metronome_s':rmse_w_metronome, 'len__wo_metronome_onsets':len__wo_metronome_onsets, 'rmse_wo_metronome_s':rmse_wo_metronome})
     return audio_dict
 
 title = '<p style="font-family:Courier; color:Black; font-size: 60px; font-weight:bold;">TATA recognition</p>'
