@@ -82,7 +82,7 @@ def audio_dict(filename, in_freq, in_onsets,len_onsets, rmse_all_input,len_metro
     audio_dict.update({'len_onsets':len_onsets , 'rmse_all_input_s':rmse_all_input, 'len_metronome_onsets':len_metronome_onsets, 'rmse_w_metronome_s':rmse_w_metronome, 'len__wo_metronome_onsets':len__wo_metronome_onsets, 'rmse_wo_metronome_s':rmse_wo_metronome})
     return audio_dict
 
-title = '<p style="font-family:Courier; color:Black; font-size: 60px; font-weight:bold;">TATA recognition</p>'
+title = '<p style="font-family:Courier; color:Black; font-size: 60px; font-weight:bold;">Audio delay recognition</p>'
 st.markdown(title, unsafe_allow_html=True)
 st.text('Work hard... Play hard')
 
