@@ -56,15 +56,15 @@ def recreate_metronome(in_onsets, metronome_onsets):
     return np.array(metronome_aligned)
 
 def df_columns():
-    col_name = ['file']
+    col_name = ['file', 'frequency_Hz']
     for n in range(50):
         column = 'onset_' + str(n+1)
         col_name.append(column)
-    col_name.extend(['len_onsets', 'rmse_all_input', 'len_metronome_onsets', 'rmse_w_metronome', 'len__wo_metronome_onsets', 'rmse_wo_metronome'])
+    col_name.extend(['len_onsets', 'rmse_all_input_s', 'len_metronome_onsets', 'rmse_w_metronome_s', 'len__wo_metronome_onsets', 'rmse_wo_metronome_s'])
     return(col_name)
 
-def metronome_dict(filename, metronome_onsets):
-    metronome_dict = {'file':f'metronome:{filename}'}
+def metronome_dict(filename, metronome_freq, metronome_onsets):
+    metronome_dict = {'file':f'metronome:{filename}','frequency' : metronome_freq}
     m_o_list = list(metronome_onsets)
     for o in m_o_list:
         k = 'onset_' + str(m_o_list.index(o) + 1)
@@ -73,8 +73,8 @@ def metronome_dict(filename, metronome_onsets):
     print(metronome_dict) 
     return(metronome_dict)
 
-def audio_dict(filename, in_onsets,len_onsets, rmse_all_input,len_metronome_onsets,rmse_w_metronome,len__wo_metronome_onsets ,rmse_wo_metronome):
-    audio_dict = {'file':f'audio:{filename}'}
+def audio_dict(filename, in_freq, in_onsets,len_onsets, rmse_all_input,len_metronome_onsets,rmse_w_metronome,len__wo_metronome_onsets ,rmse_wo_metronome):
+    audio_dict = {'file':f'audio:{filename}', 'frequency' : in_freq}
     a_o_list = list(in_onsets)
     for o in a_o_list:
         k = 'onset_' + str(a_o_list.index(o) + 1)
@@ -126,8 +126,8 @@ if len(upload) >= 1 :
         #extracting filename
         filename = file.name.split('.')[0]
         #adding values
-        metro_dict = metronome_dict(filename,metronome_onsets)
-        a_dict = audio_dict(filename, in_onsets,len_onsets, rmse_all_input,len_metronome_onsets,rmse_w_metronome,len__wo_metronome_onsets ,rmse_wo_metronome)
+        metro_dict = metronome_dict(filename,metronome_freq, metronome_onsets)
+        a_dict = audio_dict(filename,in_freq , in_onsets,len_onsets, rmse_all_input,len_metronome_onsets,rmse_w_metronome,len__wo_metronome_onsets ,rmse_wo_metronome)
         df = df.append(metro_dict, ignore_index = True)
         df = df.append(a_dict, ignore_index = True)
     csv = convert_df(df)
