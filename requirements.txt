@@ -1,5 +1,6 @@
 cffi
-pyt
+soundfile
+pytz
 numpy
 pandas
 requests
